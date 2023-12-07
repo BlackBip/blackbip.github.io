@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base64 URL Decoder</title>
+    <script>
+        window.onload = function() {
+            var url = new URL(window.location.href);
+            var encodedStr = url.searchParams.get("enc");
+            var base64Str = encodedStr.replace(/-/g, '+').replace(/_/g, '/');
+            var decodedStr = atob(base64Str).replace(/\s/g, '');
+            document.getElementById('content').innerHTML = "Tu as pioché : " + decodedStr;
+        }
+    </script>
+</head>
+<body>
+<div id="content"></div>
+</body>
+</html>
